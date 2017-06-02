@@ -1,0 +1,30 @@
+{
+	"movies" : [
+		{
+			"title" : "Nombre de la Obra 1",
+			"poster" : "./media/noon.jpg",
+			"descripcion" : "Grupo BLB, es un Grupo formado por gente altamente preparada, que por sus conocimientos y experiencia, logra realizar desarrollos íntegros.Los desarrollos, son realizados de principio a fin, por Arquitectos e Ingenieros del Grupo, logrando de esta forma hacer altamente eficaces todos los proyectos.",
+			"url" : "js/movies.json#casa"
+		},
+		{
+			"title" : "Casa",
+			"poster" : "./media/noon.jpg",
+			"descripcion" : "Grupo BLB, es un Grupo formado por gente altamente preparada, que por sus conocimientos y experiencia, logra realizar desarrollos íntegros.Los desarrollos, son realizados de principio a fin, por Arquitectos e Ingenieros del Grupo, logrando de esta forma hacer altamente eficaces todos los proyectos.",
+			"url" : "./construccion_1.html#2"
+		},
+		{
+			"title" : "Nombre de la Obra",
+			"poster" : "./media/noon.jpg",
+			"poster2" : "./media/noon.jpg",
+			"poster3" : "./media/noon.jpg",
+			"descripcion" : "Grupo BLB, es un Grupo formado por gente altamente preparada, que por sus conocimientos y experiencia, logra realizar desarrollos íntegros.Los desarrollos, son realizados de principio a fin, por Arquitectos e Ingenieros del Grupo, logrando de esta forma hacer altamente eficaces todos los proyectos.",
+			"url" : "./construccion_1.html"
+		},
+        {
+			"title" : "Nombre de la Obra",
+			"poster" : "./media/noon.jpg",
+			"descripcion" : "Grupo BLB, es un Grupo formado por gente altamente preparada, que por sus conocimientos y experiencia, logra realizar desarrollos íntegros.Los desarrollos, son realizados de principio a fin, por Arquitectos e Ingenieros del Grupo, logrando de esta forma hacer altamente eficaces todos los proyectos.",
+			"url" : "./construccion_1.html"
+		}
+	]
+}

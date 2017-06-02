@@ -1,0 +1,220 @@
+.Header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 997;
+	height: 5rem;
+	background-color: rgba(51, 51, 51, 1);
+	color: #FFF;
+}
+.Header-container {
+	max-width: 1200px;
+	margin: 0  auto;
+	height: 5rem;
+
+}
+.Logo {
+	position: relative;
+	z-index: 998;
+	height: 4.5rem;
+	padding-left: 1rem;
+}
+
+.Logo-link {
+	display: block;
+	width: 18rem;
+	height: inherit;
+	text-indent: -9999px;
+	background-image: 
+		url('../media/Recurso15.png');
+	background-repeat: no-repeat;
+	background-position:  2rem;
+	background-size: contain;
+ 
+}
+
+.Panel {
+	left: 0;
+	z-index: 996;
+	overflow: hidden;
+	background-color: rgba(51, 51, 51, .8);
+	transition: all .3s ease-out;
+	transform: translateX(-104vw);
+}
+.PanelRS {
+	position: fixed;
+	top: 5rem;
+	width: 4.5rem;
+	right: 0;
+	transform: translateX(100vw);
+	overflow: hidden;
+	background-color: rgba(51, 51, 51, .8);
+	transition: all .3s ease-out;
+	transform: translateX(100vw);
+	padding: .7rem;
+}
+
+.Panel.is-active, .PanelRS.is-active {
+	padding-bottom: 4rem;
+	overflow-y: auto;
+	max-width: 100vw;
+	transform: translateX(0);
+}
+
+.Panel-button {
+	position: fixed;
+	top: 0;
+	right: 5rem;
+	z-index: 999;
+}
+.PanelRS-button {
+	position: fixed;
+	top: 0;
+	right: 1rem;
+	z-index: 999;
+}
+.hamburger {
+	margin-top: 1rem;
+	padding: 15px 8px; 
+	border: 1px solid #58aa99;
+	border-radius: 10px;
+}
+.hamburger:focus {
+	outline: 0;
+}
+.hamburger-box {
+  width: 40px;
+  height: 10px;
+}
+.hamburgerRS {
+	margin-top: 1rem;
+	padding: 25px 25px; 
+	background-image: url(../media/Recurso3.svg);
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-color: transparent;
+	outline: 0;
+	border: 0;
+	transition: all .3s ease-out;
+}
+.hamburgerRS:hover {
+	opacity: .7;
+}
+.hamburgerRS.is-active  {
+	background-image: url(../media/Recurso18.svg);
+}
+
+.hamburger-inner,
+.hamburger-inner:after,
+.hamburger-inner:before {
+	background-color: #58aa99;
+}
+
+.Menu { width: 100vw; }
+
+.MenuRS { width: 4rem;}
+
+.Menu-listItem { 
+	border-top: thin solid rgba(51, 51, 51, .8);
+	text-align: center;
+}
+
+.Menu-item {
+	display: block;
+	border-bottom: thin solid rgba(51, 51, 51, .8);
+	list-style-type: none;
+	margin: auto;
+	
+}
+
+.Menu-link {
+	display: block;
+	padding: 1.5rem;
+	font-weight: bold;
+	color: #FFF;
+	transition: all .3s ease-out;
+	text-decoration: none;
+}
+
+.Menu-link:hover {
+	background-color: transparent;
+	color: #58aa99;
+}
+
+.Menu-linkRS {
+	color: #FFF;
+	text-decoration: none;
+	padding: 1rem .5rem;
+	margin: auto;
+}
+
+.Menu-linkRS:hover{
+	color: #58aa99;
+}
+
+
+@media screen and (min-width: 64em) {
+	.Header {
+		position: fixed;
+	}
+	.Header-container {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	.Logo {
+		flex: none;
+		background-color: transparent;
+	}
+	.Logo-link {
+			background-position:  left;
+			background-size: contain;
+	}
+
+	.Panel {
+		position: static;
+		top: 0;
+		flex: none;
+		width: 90%;
+		max-width: none;
+		overflow: visible;
+		background-color: transparent;
+		transition: none;
+		transform: translateX(0);
+	}
+	
+	.Panel-button { display: none; }
+
+
+
+	.Menu-listItem {
+		border: 0;
+		text-align: right;
+	}
+
+	.Menu-item {
+		display: inline;
+		border: 0;
+	}
+
+	.Menu-link { display: inline; }
+
+
+
+}
+
+@media screen and (min-width: 75em){ 
+	.Menu-listItem {
+			margin-right: 5rem;
+	}
+
+}
+
+@media screen and (min-width: 81em){ 
+	.Menu-listItem {
+			margin-right: 5rem;
+	}
+
+}

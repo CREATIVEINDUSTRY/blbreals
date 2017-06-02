@@ -1,0 +1,15 @@
+{
+  "name": "component-design",
+  "version": "1.0.0",
+  "description": "Aprendiendo a diseñar con Componentes Web",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "servidorweb": "browser-sync start --proxy localhost --startPath html --files \"./**\" --reload-delay=300  --reload-debounce=500"
+  },
+  "author": "Creative Industry MX / Marielisa Villanueva <pochas.ca@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "browser-sync": "^2.18.8"
+  }
+}

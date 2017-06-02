@@ -1,0 +1,164 @@
+@charsert "utf-8";
+
+input {
+    padding: .5rem 0;
+}
+ main {
+     min-height: 75vh;
+ }
+
+.App-form {
+    margin: auto;
+    text-align: left;
+}
+.App-form input, .App-form textarea, .App-form select{
+    font-family: sans-serif;
+    font-size: 1rem;
+    margin: .5rem 0;
+    padding: .5rem;
+}
+
+.Login {
+    margin: 1rem auto 0;
+    background-color: #FFF;
+    padding: 5rem 3rem;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, .5);
+    border-radius: 1rem;
+}
+
+.App-userInfo { 
+    display: block;
+    padding: 1em ;
+    text-align: right;
+    color: #333;
+}
+
+.App-home {
+    height: auto;
+    text-align: center;
+    padding: 2em;
+    margin-top: 5rem;
+}
+
+.App-title {
+     position: relative;
+    font-size: 1.3rem;
+    font-weight: normal;
+    margin-top: 3rem;
+    text-align: right;
+}
+.App-titleLogin {
+     position: relative;
+    font-size: 1.3rem;
+    font-weight: normal;
+    margin-top: 9rem;
+    text-align: right;
+}
+.App-icons {
+    color: #222;
+    margin: 3rem auto;
+}
+
+.iconsItem {
+    color: #9d8b59;
+    text-decoration: none;
+    border: .15rem solid #9d8b59;
+    margin: .9rem .5rem;
+    padding: .5rem;
+    border-radius: 1rem;
+}
+
+.iconsItem > figcaption  {
+    text-align: left;
+    margin: auto;
+    color: #333;
+}
+.iconsItem > figcaption > h4  {
+    font-size: 1.1rem;
+    margin: .5rem 0 .2rem;
+    text-align: center;
+}
+
+.App-box {
+    margin: 1rem auto 0;
+}
+
+
+.App-box p {
+    margin: 1rem 0;
+    text-align: justify;
+}
+
+.App-box > div {
+    margin: 1rem 0;
+}
+
+.Item > span {
+    font-weight: bold;
+}
+.Table-titles {
+    margin: 3rem auto  0;
+    font-weight: bold;
+    background-color: #333; 
+    color:#FFF;
+}
+.Table-item {
+    margin: 0 auto;
+    border-bottom: thin solid #FFF;
+}
+
+.Item-table {
+    padding: .5rem;
+    border-right: thin solid #FFF;
+}
+.Item-table  img {
+    margin: auto;
+}
+
+.Table-item:nth-child(even) {
+     background-color: #c5c5c5;
+     color:#333;
+}
+
+.Table-item:nth-child(odd):not(:first-child) { 
+    background-color: #efefef; 
+    color:#5c5c5c;
+}
+
+
+.u-button {
+    border: none;
+    font-family: 'Ubuntu';
+    font-size: 19px;
+    color:#FFF;
+    font-weight: bold;
+}
+
+.u-button:hover { 
+    background-color: #666;
+    color: #FFF;
+     box-shadow: 1px 2px 6px #666;
+}
+
+.u-bold { font-weight: bold; }
+
+.u-message {
+    padding: 1rem;
+    text-align: center;
+}
+
+.u-error {
+    margin-top: 12rem;
+    background-color: #E50914;
+    color: #FFF;
+}
+
+.u-add { background-color:  #009245; }
+
+.u-edit { background-color: #0071BC; }
+
+.u-delete { background-color: #ED1C24; }
+
+.u-show { background-color: #00A99D; }
+
+

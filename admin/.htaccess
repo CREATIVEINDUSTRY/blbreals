@@ -1,0 +1,19 @@
+#Comentario .htaccess
+#https://es.wikipedia.org/wiki/.htaccess
+#http://librosweb.es/tutorial/trucos-y-ejemplos-de-configuracion-del-archivo-htaccess-de-apache/
+#https://httpd.apache.org/docs/current/howto/htaccess.html
+#http://www.htaccess-guide.com/
+# Optimización de Sitios con PHP
+# http://www.youtube.com/watch?v=J_npJ8kKESg
+# Urls Amigables
+# http://www.youtube.com/watch?v=HsmYkJ1qlHE
+
+Options +FollowSymlinks
+RewriteEngine On
+
+RewriteBase /php_sociedad/admin
+
+RewriteCond %{SCRIPT_FILENAME} !-d
+RewriteCond %{SCRIPT_FILENAME} !-f
+
+RewriteRule ^(.*)$ index.php?r=$1 [L]

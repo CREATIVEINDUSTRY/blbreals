@@ -1,0 +1,33 @@
+.proyect {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.proyect > a {
+  text-decoration: none;
+  flex: 1;
+  margin-right: 4px;
+  padding: 12px;
+  color: #58aa99;
+  background-color: #e7e7e7;
+  text-align: center;
+  -webkit-transition: color 0.3s;
+          transition: color 0.3s;
+}
+
+.proyect > a:last-child {
+  margin-right: 0;
+}
+
+.proyect > a:hover {
+  color: #FFF;
+  background-color: #6d6d6d;
+}
+
+.active {
+  color: #58aa99;
+  background-color: red;
+}
+
