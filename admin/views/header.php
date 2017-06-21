@@ -39,9 +39,6 @@ if ($_SESSION['ok']) {
 						<a href="tipo" class="Menu-link">Tipo de Proyecto</a>
 					</li>
 					<li class="Menu-item">
-						<a href="img" class="Menu-link">Imagenes</a>
-					</li>
-					<li class="Menu-item">
 						<a href="status" class="Menu-link">Estatus</a>
 					</li>
 					<li class="Menu-item">
