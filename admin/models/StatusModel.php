@@ -1,5 +1,4 @@
 <?php 
-require ('Model.php');
 
 final class StatusModel extends Model {
 public $state_id;

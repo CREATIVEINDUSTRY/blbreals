@@ -5,7 +5,7 @@
   "main": "index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "servidorweb": "browser-sync start --proxy localhost --startPath html --files \"./**\" --reload-delay=300  --reload-debounce=500"
+    "servidorweb": "browser-sync start --proxy localhost --startPath blb --files \"./**\" --reload-delay=300  --reload-debounce=500"
   },
   "author": "Creative Industry MX / Marielisa Villanueva <pochas.ca@gmail.com>",
   "license": "MIT",

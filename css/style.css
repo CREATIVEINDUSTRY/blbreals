@@ -68,13 +68,13 @@ body {
     margin-top: 1rem;
 }
 .Proyect-icons{
-    margin: 2rem;
-    margin: auto;
+    margin: 2rem auto;
 }
 .Proyect-iconsItem, .Proyect-iconsItem:visited {
-    margin: 1rem 0;
+    margin: 1rem auto;
     text-decoration: none;
     color: #FFF;
+   
 }
 .Proyect-iconsItem > img {
     height: 8rem;
@@ -90,14 +90,14 @@ body {
     margin: .5rem 0 .2rem;
     text-align: center;
 }
-.Comerciales {
-    background-image: url(../media/Recurso4.svg);
+.Unifamiliares {
+    background-image: url(../media/Recurso5.svg);
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
 }
 .Residenciales {
-    background-image: url(../media/Recurso5.svg);
+    background-image: url(../media/Reresidencial.png);
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
@@ -129,7 +129,7 @@ body {
 .OnConstruccion {
     margin: 2rem auto ;
 }
-.OnConstruccion-img {
+.OnConstruccion-box img {
     background-color: #333;
     height: 15rem;
     margin: 0 auto;
@@ -146,7 +146,7 @@ body {
     text-align: left;
 }
 .OnConstruccion-box {
-    margin: 3rem 0 0; 
+    margin: 1rem auto; 
 }
 .OnConstruccion-box > h3 {
     margin: 1rem 0; 
@@ -178,13 +178,11 @@ body {
 
 .Promo {
     position: relative;
-    background-color: #333;
-    color: #FFF;
+    color: #333;
     padding: 2rem 0 ;
 }
 
 .Promo-title > h2 {
-    position: relative;
     font-size: 5vh;
     font-weight: normal;
     margin-top: 1rem;
@@ -193,60 +191,30 @@ body {
     margin-top: 1rem;
     position: relative;
 }
-.Promo-titleSlider {
-    margin-top: -2px;
-    padding: 2rem ;
-    background-color: #999;
-}
-.Promo-titleSlider h2  {
-    color: #222;
-    margin: .5rem 0;
-}
-.Promo-titleSlider h2 div {
-    margin-bottom: .5rem;
-    background-color: #FFF;
-}
-.Promo-titleSlider > button {
-    height: 3rem;
-    margin: 1rem 0;
-    padding: 1rem;
-    background-color: #d8d1bd;
-    border: none;
-    font-family: 'Ubuntu';
-    font-size: 19px;
-    color:#333;
-    font-weight: bold;
-}
-.Promo-titleSlider > button:hover {
-        transform: skewX(-10deg);
-        background-color: #58aa99;
-        color: #FFF;
-        box-shadow: 1px 2px 6px #666;
-}
 
 .Promo-arrow {
     position: absolute;
+    top: 45%;
 }
-.Arrow-left,
-.Arrow-right {
-  cursor: pointer;
-  position: absolute;
-  top: 0;
-  width: auto;
-  padding: 1rem;
-  color: #FFF;
-  font-weight: bold;
-  font-size: 18px;
-  transition: 0.6s ease;
-  border-radius: 50%;
-  background-color: transparent;
+
+.Arrow-right, .Arrow-left {
+    color: #bbb;
+    margin: 0 .5rem;
 }
+
+.Arrow-right:hover, .Arrow-left:hover {
+    color: #333;
+}
+
 .Arrow-right {
+    position: absolute;
     right: 0;
 }
-.Arrow-left:hover, .Arrow-right:hover {
-    background-color: rgba(88, 170, 153, .7);
+.Dont {
+    margin: auto;
+    left: 45%;
 }
+
 .dot {
   cursor:pointer;
   height: 13px;
@@ -254,7 +222,6 @@ body {
   margin: .5rem .3rem 0;
   background-color: #bbb;
   border-radius: 50%;
-  display: inline-block;
   transition: background-color 0.6s ease;
 }
 .active, .dot:hover {

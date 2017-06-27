@@ -1,5 +1,4 @@
 <?php
-require ('Model.php');
 
 final class UsersModel extends Model {
 	public $user;

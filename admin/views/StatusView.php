@@ -1,16 +1,16 @@
 <?php  
-final class ImageView {
-	private $image;
-	private static $title = 'Imagenes';
+final class StatusView {
+	private $status;
+	private static $title = 'Estatus';
 
 	public function __construct() {
-		$this->model = new ImageModel();
+		$this->model = new StatusModel();
 	}
 
 	public function get( $id = '' ) {
-		$image = $this->model->get( $id );
+		$status = $this->model->get( $id );
 
-		if ( empty($image) ) {
+		if ( empty($status) ) {
 			print('<p class="u-message  u-bold  u-error">NO HAY ' . self::$title . '<p>');
 		} else {
 			$html = '

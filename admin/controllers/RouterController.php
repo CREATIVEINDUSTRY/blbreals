@@ -55,9 +55,6 @@ final class RouterController {
 			case 'proyectos':
 				$this->page->load_view('proyectos');		
 				break;
-			case 'img':
-				$this->page->load_view('img');		
-				break;
 			case 'tipo':
 				$this->page->load_view('tipo');				
 				break;

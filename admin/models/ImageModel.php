@@ -6,7 +6,7 @@ public $idImagen;
 public $fileName;
 public $extension;
 public $id_proyecto;
-public $binario;
+public url_image;
 
 public function __construct() { }
 
@@ -19,16 +19,22 @@ public function set( $data = array() ) {
 		$file = $_FILES['miArchivo']; //Asignamos el contenido del parametro a una variable para su mejor manejo
 		
 		$temName = $file['tmp_name']; //Obtenemos el directorio temporal en donde se ha almacenado el archivo;
-		
-		//Comenzamos a extraer la información del archivo
-		$fp = fopen($temName, "rb");//abrimos el archivo con permiso de lectura
-		$contenido = fread($fp, filesize($temName));//leemos el contenido del archivo
-		//Una vez leido el archivo se obtiene un string con caracteres especiales.
-		$contenido = addslashes($contenido);//se escapan los caracteres especiales
-		fclose($fp);//Cerramos el archivo
+        $internal_url = $_POST['temp_uri']; // URL interna dentro de la carpeta img
+        $fileNme = $_POST['file_name'];
+        $completeURL = "img/" . $internal_url . $fileNme
+        $uploadOk = 1;
+        $type = pathinfo($completeURL,PATHINFO_EXTENSION);
+        $check = getimagesize($_FILES['miArchivo']);
+        if($check !== false) {
+             if (move_uploaded_file($_FILES['miArchivo'], $target_file)) {
+                echo "<script>alert(\'Archivo subido con éxito\');</script>";
+            }
+        } else {
+            echo 'error';
+        }
 	
 
-	$this->sql = "INSERT INTO img (idImagen, binario, id_proyecto) values ('$idImagen', '$contenido', '$id_proyecto')";
+	$this->sql = "INSERT INTO img (idImagen, url_image, id_proyecto) values ('$idImagen', '$completeURL', '$id_proyecto')";
 
 	$this->set_query();
 }
@@ -39,7 +45,7 @@ public function edit( $data = array() ) {
 		$$key =  $value;
 	}
 
-	$this->sql = "UPDATE img SET idImagen = '$idImagen',  binario = '$binario', id_proyecto = '$id_proyecto'  WHERE idImagen = $idImage";
+	$this->sql = "UPDATE img SET idImagen = '$idImagen',  url_image = '$completeURL', id_proyecto = '$id_proyecto'  WHERE idImagen = $idImage";
 	$this->set_query();
 }
 

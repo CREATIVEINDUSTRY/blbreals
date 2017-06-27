@@ -1,5 +1,4 @@
 <?php 
-require ('Model.php');
 
 final class ColoniasModel extends Model {
 public $colonia_id;

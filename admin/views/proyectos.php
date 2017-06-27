@@ -3,10 +3,10 @@ $proyecto = new ProyectosView();
 
 if ($_SESSION['role'] && $_GET && !$_POST ) {
 	$proyecto->get();
-} else if ( $_SESSION['role'] && $_GET && $_POST['r'] == 'show-record') {
-	$proyecto->get_state( $_POST['proyecto_id']);
+} else if ( $_SESSION['role'] && $_GET && $_POST['r'] == '') {
+	$proyecto->get( $_POST['proyecto_id']);
 } else if ( $_SESSION['role'] == 'Admin'){
-	switch ($_POST['r']) {
+	switch   {
 		case 'add-form':
 			$proyecto->add_form();
 			break;
@@ -22,7 +22,8 @@ if ($_SESSION['role'] && $_GET && !$_POST ) {
 				'state' => $_POST['state']
 				),
 
-				$_POST['clase']
+				$_POST['clase'],
+				$_POST['imgUrl']
 
 	 );
 			$proyecto->set($new_proyecto);
@@ -39,7 +40,8 @@ if ($_SESSION['role'] && $_GET && !$_POST ) {
 				'year' => $_POST['year'],
 				'ubicacion' => $_POST['ubicacion'],
 				'colonia' => $_POST['colonia'],
-				'state' => $_POST['state']
+				'state' => $_POST['state'],
+				'img' => $_POST['img']
 				),
 
 				$_POST['clase']

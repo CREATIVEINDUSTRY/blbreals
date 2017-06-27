@@ -1,6 +1,4 @@
 <?php 
-include ('Model.php');
-
 final class ProyectosModel extends Model {
 public $proyecto_id;
 public $titulo;
@@ -30,19 +28,28 @@ public function set( $data = array() ) {
              } 
              $this->sql_transaction[1] = trim( $this->sql_transaction[1], ',' );
 
+     $this->sql_transaction[2] = "INSERT INTO images(proyecto, imgUrl)
+        VALUES ";
+            for ($n=0; $n < count($data[2]); $n++) { 
+              $this->sql_transaction[2] .= " ('$proyecto_id', " . $data[2][$n] . " ),";
+             } 
+             $this->sql_transaction[2] = trim( $this->sql_transaction[2], ',' );       
+
     $this->set_transaction();
 }
 
 public function get( $id = '') {
 	$this->sql = ($id != '') 
-	? "SELECT p.proyecto_id, p.titulo, p.descripcion, p.year, p.ubicacion, c.colonia_name, s.state_name,
+	? "SELECT p.proyecto_id, p.titulo, p.descripcion, p.year, p.ubicacion, c.colonia_name, s.state_name, i.imgUrl, 
         (SELECT GROUP_CONCAT(tp.tipo_proyecto_name) FROM tipo_proyecto AS tp INNER JOIN tipo_proyecto_x_proyecto AS txp ON tp.tipo_proyecto_id = txp.tipo WHERE p.proyecto_id = txp.proyecto) AS clase
         FROM proyecto AS p 
+        INNER JOIN images AS i ON p.proyecto_id = i.proyecto
         INNER JOIN colonias AS c ON p.colonia = c.colonia_id  
         INNER JOIN status AS s ON p.state = s.state_id WHERE p.proyecto_id = '$id' " 
-	: "SELECT  p.proyecto_id, p.titulo, p.descripcion, p.year, p.ubicacion, c.colonia_name, s.state_name,
-        (SELECT GROUP_CONCAT(tp.tipo_proyecto_name) FROM tipo_proyecto AS tp INNER JOIN tipo_proyecto_x_proyecto AS txp ON tp.tipo_proyecto_id = txp. tipo WHERE p.proyecto_id = txp.proyecto) AS clase
+	: "SELECT p.proyecto_id, p.titulo, p.descripcion, p.year, p.ubicacion, c.colonia_name, s.state_name, i.imgUrl, 
+        (SELECT GROUP_CONCAT(tp.tipo_proyecto_name) FROM tipo_proyecto AS tp INNER JOIN tipo_proyecto_x_proyecto AS txp ON tp.tipo_proyecto_id = txp.tipo WHERE p.proyecto_id = txp.proyecto) AS clase
         FROM proyecto AS p 
+        INNER JOIN images AS i ON p.proyecto_id = i.proyecto
         INNER JOIN colonias AS c ON p.colonia = c.colonia_id  
         INNER JOIN status AS s ON p.state = s.state_id"; 
 	$this->get_query();
@@ -55,14 +62,39 @@ public function get( $id = '') {
 
 public function get_state ( $id = '') {
 	$this->sql = ($id != '') 
-	? "SELECT p.proyecto_id, p.titulo, p.descripcion, p.year, p.ubicacion, c.colonia_name, s.state_name,
+	? "SELECT p.proyecto_id, p.titulo, p.descripcion, p.year, p.ubicacion, c.colonia_name, s.state_name, i.imgUrl,
         (SELECT GROUP_CONCAT(tp.tipo_proyecto_name) FROM tipo_proyecto AS tp INNER JOIN tipo_proyecto_x_proyecto AS txp ON tp.tipo_proyecto_id = txp.tipo WHERE p.proyecto_id = txp.proyecto) AS clase
         FROM proyecto AS p 
+        INNER JOIN images AS i ON p.proyecto_id = i.proyecto
         INNER JOIN colonias AS c ON p.colonia = c.colonia_id  
         INNER JOIN status AS s ON p.state = s.state_id WHERE s.state_id = '$id' " 
-	: "SELECT  p.proyecto_id, p.titulo, p.descripcion, p.year, p.ubicacion, c.colonia_name, s.state_name,
-        (SELECT GROUP_CONCAT(tp.tipo_proyecto_name) FROM tipo_proyecto AS tp INNER JOIN tipo_proyecto_x_proyecto AS txp ON tp.tipo_proyecto_id = txp. tipo WHERE p.proyecto_id = txp.proyecto) AS clase
+	: "SELECT p.proyecto_id, p.titulo, p.descripcion, p.year, p.ubicacion, c.colonia_name, s.state_name, i.imgUrl,
+        (SELECT GROUP_CONCAT(tp.tipo_proyecto_name) FROM tipo_proyecto AS tp INNER JOIN tipo_proyecto_x_proyecto AS txp ON tp.tipo_proyecto_id = txp.tipo WHERE p.proyecto_id = txp.proyecto) AS clase
         FROM proyecto AS p 
+        INNER JOIN images AS i ON p.proyecto_id = i.proyecto
+        INNER JOIN colonias AS c ON p.colonia = c.colonia_id  
+        INNER JOIN status AS s ON p.state = s.state_id"; 
+	$this->get_query();
+	$data = array();
+	foreach ($this->rows as $key => $value) {
+		array_push($data, $value);
+	}
+	return $data;
+}
+
+public function get_tipo ( $id = '') {
+	$this->sql = ($id != '') 
+	? "SELECT p.proyecto_id, p.titulo, p.descripcion, p.year, p.ubicacion, c.colonia_name, s.state_name, i.imgUrl, tp.tipo,
+        (SELECT GROUP_CONCAT(tp.tipo_proyecto_name) FROM tipo_proyecto AS tp INNER JOIN tipo_proyecto_x_proyecto AS txp ON tp.tipo_proyecto_id = txp.tipo WHERE p.proyecto_id = txp.proyecto) AS clase
+        FROM proyecto AS p 
+        INNER JOIN tipo_proyecto_x_proyecto AS tp ON  p.proyecto_id = tp.proyecto
+        INNER JOIN images AS i ON p.proyecto_id = i.proyecto
+        INNER JOIN colonias AS c ON p.colonia = c.colonia_id  
+        INNER JOIN status AS s ON p.state = s.state_id WHERE tp.tipo = '$id' " 
+	: "SELECT p.proyecto_id, p.titulo, p.descripcion, p.year, p.ubicacion, c.colonia_name, s.state_name, i.imgUrl,
+        (SELECT GROUP_CONCAT(tp.tipo_proyecto_name) FROM tipo_proyecto AS tp INNER JOIN tipo_proyecto_x_proyecto AS txp ON tp.tipo_proyecto_id = txp.tipo WHERE p.proyecto_id = txp.proyecto) AS clase
+        FROM proyecto AS p 
+        INNER JOIN images AS i ON p.proyecto_id = i.proyecto
         INNER JOIN colonias AS c ON p.colonia = c.colonia_id  
         INNER JOIN status AS s ON p.state = s.state_id"; 
 	$this->get_query();
@@ -76,7 +108,7 @@ public function get_state ( $id = '') {
 public function del ($id = '' ) {
   $this->sql_transaction[0] = "DELETE FROM tipo_proyecto_x_proyecto WHERE proyecto = '$id'";
         
-    $this->sql_transaction[1]  =  "DELETE FROM proyecto WHERE proyecto_id = '$id'";
+  $this->sql_transaction[1]  =  "DELETE FROM proyecto WHERE proyecto_id = '$id'";
 
 	$this->set_transaction();
 }

@@ -10,20 +10,20 @@ if ($_SESSION['role'] && $_GET && !$_POST ) {
 			break;
 		case 'add-crud':
 			$new_image = array(
-				'idImage' =>0,
-				'binario' => $_POST['binario'], 
-				'id_proyecto' => $_POST['id_proyecto']
+				'img_id' =>0,
+				'proyecto' => $_POST['proyecto_id'], 
+				'imgUrl' => $_POST['imgUrl']
 				 );
 			$image->set($new_image);
 			break;
 		case 'edit-form':
-			$image->edit_form( $_POST['idImagen'] );
+			$image->edit_form( $_POST['img_id'] );
 			break;
 		case 'edit-crud':
 			$save_image = array(
-				'idImage' =>0,
-				'binario' => $_POST['binario'], 
-				'id_proyecto' => $_POST['id_proyecto']
+				'img_id' =>0,
+				'proyecto' => $_POST['proyecto_id'], 
+				'imgUrl' => $_POST['imgUrl']
 			);
 			$image->edit($save_image);
 			break;

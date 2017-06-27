@@ -1,6 +1,6 @@
 <?php  
 final class ProyectosView {
-	private $model;
+	private $proyecto;
 	private static $title = 'Proyecto';
 
 	public function __construct() {
@@ -29,6 +29,7 @@ final class ProyectosView {
 							<div class="u-line-right xs-w30"></div>	
 						</h2>
 					</section>
+					<img src="%s" alt="" class="Grup-img xs-w100 md-w35">
 					<p class="xs-w100"><span>Descripción:</span>%s</p>
 					<div class="Item xs-w100"><span>Año:</span>&nbsp;%s</div>
 					<div class="Item xs-w100"><span>Ubicación:</span>&nbsp;%s</div>
@@ -46,6 +47,7 @@ final class ProyectosView {
 					</div>
 				',
 				$proyecto[0]['titulo'],
+				$proyecto[0]['imgUrl'],
                 $proyecto[0]['descripcion'],
 				$proyecto[0]['year'],
 				$proyecto[0]['ubicacion'],
@@ -206,6 +208,8 @@ final class ProyectosView {
 		$colonias_list = $this->list_add( new ColoniasModel(), 'colonia_id', 'colonia_name' );
 		$status_list = $this->list_add( new StatusModel(), 'state_id', 'state_name' );
 		$tipo_list = $this->list_add( new TipoModel(), 'tipo_proyecto_id', 'tipo_proyecto_name' );
+		$img_list = $this->list_add( new ImgModel(), 'img_id',  "imgUrl" );
+
 
 		printf('
 			<section class="App-title container xs-w100  xs-flex xs-flex-wrap xs-jc-flex-end">
@@ -237,6 +241,11 @@ final class ProyectosView {
 					%s
 				</select>
 
+				<select class="xs-w65" name="imgUrl[]" placeholder="Images" multiple required>
+					<option value="">Imagenes</option>
+					%s
+				</select>
+
 				<input class="xs-w100 md-w48 u-button  u-add" type="button" value="Regresar" onclick="history.back()">
 
 				<input class="u-button  u-add xs-w100 md-w48" type="submit" value="Agregar">
@@ -244,7 +253,8 @@ final class ProyectosView {
 			</form>',
 			$colonias_list,
 			$tipo_list,
-			$status_list
+			$status_list,
+			$img_list
 		);
 	}
 
@@ -283,15 +293,18 @@ final class ProyectosView {
 				</select>
 
 
-				<select class="xs-w60" name="clase[]" placeholder="Tipo de Obra" multiple required>
+				<select class="xs-w50" name="clase[]" placeholder="Tipo de Obra" multiple required>
 					<option value="">Tipo de Obra</option>
 					%s
 				</select>
 
-				<select class="xs-w65" name="state" placeholder="Status"  required>
+				<select class="xs-w40" name="state" placeholder="Status"  required>
 					<option value="">Status</option>
 					%s
 				</select>
+
+				<img src="%s" alt="" class="Grup-img xs-w100 md-w35">
+				<input class="xs-w90" type="file" name="img" placeholder="Imagen" required>
 
 				<input class="xs-w100 md-w48 u-button  u-add" type="button" value="Regresar" onclick="history.back()">
 
@@ -306,7 +319,8 @@ final class ProyectosView {
 			$proyecto[0]['ubicacion'],
 			$colonias_list,
 			$tipo_list,
-			$status_list
+			$status_list,
+			$proyecto[0]['imgUrl']
 			
 		);
 	}

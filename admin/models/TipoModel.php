@@ -1,5 +1,4 @@
 <?php 
-require ('Model.php');
 
 final class TipoModel extends Model {
 public $tipo_proyecto_id;
